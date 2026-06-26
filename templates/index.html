@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Movie Genre Classifier</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎬 Movie Genre Classification</h1>
+
+<form action="/predict" method="POST">
+
+<textarea
+name="plot"
+rows="10"
+placeholder="Enter Movie Plot..."
+required>{{ plot if plot else '' }}</textarea>
+
+<br>
+
+<button type="submit">
+Predict Genre
+</button>
+
+</form>
+
+{% if prediction %}
+
+<div class="result">
+
+<h2>Predicted Genre</h2>
+
+<h3>{{ prediction }}</h3>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
